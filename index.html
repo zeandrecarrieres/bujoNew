@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bujo</title>
+    <meta name="theme-color" content="#f9f9f7" />
+    <link rel="apple-touch-icon" href="/pwa-192x192.png" />
+    <!-- Tailwind CDN to perfectly match templates -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Work+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#e2e3e1",
+              "on-surface-variant": "#474747",
+              "on-secondary-fixed-variant": "#3b3b3b",
+              "on-primary": "#e5e2e1",
+              "surface-container": "#eeeeec",
+              "secondary-container": "#d6d4d3",
+              "outline": "#777777",
+              "inverse-primary": "#c8c6c5",
+              "tertiary-fixed": "#5e5e5e",
+              "surface-bright": "#f9f9f7",
+              "primary-fixed": "#5f5e5e",
+              "inverse-on-surface": "#f1f1ef",
+              "on-primary-fixed-variant": "#e5e2e1",
+              "tertiary-fixed-dim": "#474747",
+              "inverse-surface": "#2f3130",
+              "surface-dim": "#dadad8",
+              "surface-container-high": "#e8e8e6",
+              "primary-container": "#3c3b3b",
+              "on-error": "#ffffff",
+              "surface-variant": "#e2e3e1",
+              "primary-fixed-dim": "#474746",
+              "error": "#ba1a1a",
+              "on-tertiary": "#e2e2e2",
+              "on-tertiary-fixed-variant": "#e2e2e2",
+              "secondary-fixed-dim": "#acabab",
+              "surface-container-lowest": "#ffffff",
+              "primary": "#000000",
+              "on-secondary-container": "#1b1c1c",
+              "surface-tint": "#5f5e5e",
+              "surface-container-low": "#f4f4f2",
+              "tertiary": "#3b3b3b",
+              "on-background": "#1a1c1b",
+              "error-container": "#ffdad6",
+              "outline-variant": "#c6c6c6",
+              "tertiary-container": "#747474",
+              "background": "#f9f9f7",
+              "on-primary-container": "#ffffff",
+              "on-secondary-fixed": "#1b1c1c",
+              "on-tertiary-container": "#ffffff",
+              "on-primary-fixed": "#ffffff",
+              "secondary-fixed": "#c8c6c6",
+              "on-tertiary-fixed": "#ffffff",
+              "on-error-container": "#410002",
+              "on-surface": "#1a1c1b",
+              "on-secondary": "#ffffff",
+              "surface": "#f9f9f7",
+              "secondary": "#5f5e5e"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Work Sans", "sans-serif"],
+              "label": ["Work Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+  </head>
+  <body class="bg-[#f9f9f7] text-[#1a1c1b] font-body selection:bg-secondary-container">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

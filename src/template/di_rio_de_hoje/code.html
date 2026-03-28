@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Work+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#e2e3e1",
+              "on-surface-variant": "#474747",
+              "on-secondary-fixed-variant": "#3b3b3b",
+              "on-primary": "#e5e2e1",
+              "surface-container": "#eeeeec",
+              "secondary-container": "#d6d4d3",
+              "outline": "#777777",
+              "inverse-primary": "#c8c6c5",
+              "tertiary-fixed": "#5e5e5e",
+              "surface-bright": "#f9f9f7",
+              "primary-fixed": "#5f5e5e",
+              "inverse-on-surface": "#f1f1ef",
+              "on-primary-fixed-variant": "#e5e2e1",
+              "tertiary-fixed-dim": "#474747",
+              "inverse-surface": "#2f3130",
+              "surface-dim": "#dadad8",
+              "surface-container-high": "#e8e8e6",
+              "primary-container": "#3c3b3b",
+              "on-error": "#ffffff",
+              "surface-variant": "#e2e3e1",
+              "primary-fixed-dim": "#474746",
+              "error": "#ba1a1a",
+              "on-tertiary": "#e2e2e2",
+              "on-tertiary-fixed-variant": "#e2e2e2",
+              "secondary-fixed-dim": "#acabab",
+              "surface-container-lowest": "#ffffff",
+              "primary": "#000000",
+              "on-secondary-container": "#1b1c1c",
+              "surface-tint": "#5f5e5e",
+              "surface-container-low": "#f4f4f2",
+              "tertiary": "#3b3b3b",
+              "on-background": "#1a1c1b",
+              "error-container": "#ffdad6",
+              "outline-variant": "#c6c6c6",
+              "tertiary-container": "#747474",
+              "background": "#f9f9f7",
+              "on-primary-container": "#ffffff",
+              "on-secondary-fixed": "#1b1c1c",
+              "on-tertiary-container": "#ffffff",
+              "on-primary-fixed": "#ffffff",
+              "secondary-fixed": "#c8c6c6",
+              "on-tertiary-fixed": "#ffffff",
+              "on-error-container": "#410002",
+              "on-surface": "#1a1c1b",
+              "on-secondary": "#ffffff",
+              "surface": "#f9f9f7",
+              "secondary": "#5f5e5e"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Work Sans"],
+              "label": ["Work Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .dot-grid {
+            background-image: radial-gradient(circle, #c6c6c6 1px, transparent 1px);
+            background-size: 24px 24px;
+            background-attachment: local;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-container">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-[#f9f9f7] dark:bg-stone-900">
+<div class="flex justify-between items-center w-full px-6 py-8">
+<div class="flex items-center gap-4">
+<button class="active:scale-95 duration-200 hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-black dark:text-stone-100">menu</span>
+</button>
+</div>
+<h1 class="font-serif text-3xl italic tracking-tight text-black dark:text-stone-100">12 de Outubro</h1>
+<div class="flex items-center gap-4">
+<button class="active:scale-95 duration-200 hover:opacity-70 transition-opacity">
+<span class="material-symbols-outlined text-black dark:text-stone-100">search</span>
+</button>
+</div>
+</div>
+</header>
+<main class="min-h-screen pb-32 dot-grid px-6 md:px-12 lg:px-24">
+<div class="max-w-3xl mx-auto py-12">
+<!-- Hero Header / Page Intent -->
+<div class="mb-16 space-y-2">
+<span class="font-label text-[10px] uppercase tracking-[0.2em] text-outline">Diário / Registro Diário</span>
+<h2 class="font-headline text-6xl md:text-7xl font-light leading-tight italic">Sábado.</h2>
+<div class="w-12 h-[1px] bg-primary mt-6"></div>
+</div>
+<!-- Content Grid / Asymmetric Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<!-- Left Column: Primary Log -->
+<div class="md:col-span-8 space-y-12">
+<!-- Events Section (Open Circles) -->
+<section>
+<h3 class="font-label text-xs uppercase tracking-widest text-outline mb-6">Eventos</h3>
+<div class="space-y-6">
+<div class="flex items-start gap-4 group">
+<div class="w-4 h-4 rounded-full border border-primary mt-1 flex-shrink-0 group-hover:bg-primary/5 transition-colors"></div>
+<div>
+<p class="text-lg font-medium leading-none">Café da manhã com Julian</p>
+<p class="text-sm text-outline mt-1 font-headline italic">08:30 — Archive Cafe</p>
+</div>
+</div>
+<div class="flex items-start gap-4 group">
+<div class="w-4 h-4 rounded-full border border-primary mt-1 flex-shrink-0 group-hover:bg-primary/5 transition-colors"></div>
+<div>
+<p class="text-lg font-medium leading-none">Revisão trimestral de design</p>
+<p class="text-sm text-outline mt-1 font-headline italic">14:00 — Remoto</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Tasks Section (Bullets) -->
+<section>
+<h3 class="font-label text-xs uppercase tracking-widest text-outline mb-6">Tarefas</h3>
+<div class="space-y-6">
+<div class="flex items-start gap-4 group">
+<div class="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
+<p class="text-lg">Finalizar diretrizes da marca para o cliente</p>
+</div>
+<div class="flex items-start gap-4 group opacity-40">
+<div class="relative mt-2.5 flex-shrink-0">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-4 h-[1px] bg-primary rotate-45"></div>
+</div>
+</div>
+<p class="text-lg line-through decoration-1">Renovar pedido de passaporte</p>
+</div>
+<div class="flex items-start gap-4 group">
+<div class="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
+<p class="text-lg">Pedir amostras de papel de linho de alta qualidade</p>
+</div>
+<div class="flex items-start gap-4 group">
+<div class="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
+<div>
+<p class="text-lg">Rascunhar a retrospectiva trimestral</p>
+<span class="inline-block mt-2 px-2 py-0.5 bg-surface-container-high rounded-full text-[10px] uppercase tracking-tighter font-medium">Prioridade</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Notes Section (Dashes) -->
+<section>
+<h3 class="font-label text-xs uppercase tracking-widest text-outline mb-6">Notas</h3>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="w-3 h-[1px] bg-primary mt-3 flex-shrink-0"></div>
+<p class="text-lg font-headline italic leading-relaxed">A luz no estúdio esta tarde estava particularmente suave. Lembrou-me da exposição de Hammershøi.</p>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-3 h-[1px] bg-primary mt-3 flex-shrink-0"></div>
+<p class="text-lg font-headline italic leading-relaxed">Encontrei uma nova marca de tinta: "Obsidian Fog". Cinza profundo com tons arroxeados.</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Contextual Widgets / Bento-ish -->
+<div class="md:col-span-4 space-y-8">
+<div class="bg-surface-container-low p-8 rounded-lg space-y-6 border border-outline-variant/10">
+<h4 class="font-label text-[10px] uppercase tracking-widest text-outline">Humor</h4>
+<div class="flex gap-2">
+<div class="w-8 h-8 bg-primary rounded-full"></div>
+<div class="w-8 h-8 border border-outline-variant rounded-full"></div>
+<div class="w-8 h-8 border border-outline-variant rounded-full"></div>
+<div class="w-8 h-8 border border-outline-variant rounded-full"></div>
+<div class="w-8 h-8 border border-outline-variant rounded-full"></div>
+</div>
+</div>
+<div class="bg-white p-8 shadow-sm rounded-lg space-y-4">
+<h4 class="font-label text-[10px] uppercase tracking-widest text-outline">Rastreador de Hábitos</h4>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-sm">Meditação</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm">Leitura</span>
+<span class="material-symbols-outlined text-sm">circle</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm">Sem Cafeína</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</div>
+<div class="aspect-square bg-surface-container p-6 flex flex-col justify-end">
+<img class="w-full h-32 object-cover grayscale opacity-50 mix-blend-multiply mb-4" data-alt="Minimalist desk setup with a fountain pen, a closed notebook, and a small ceramic cup on a textured paper surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBaRw3LonlKvQpeb5BIjr6HJWM8_Z9eQiYgXjLfInV8Uuiom5zD4L2Zai481tWJ3ThzwpjHyxouv1Mtfrmz8T7N6-Asn2nhcR4D71iJUEM5s8vHMqLi73Hul510qIOJV2jGfhAomvcXMZi2AhhTY10vj2HerlvFoCoN8sdCT9_LBBpSPqBMvEjN5PYQ9Kt1qDG75FKlDH7wn6PwXfmHzyVfIy9V3mfQnphP3YVD6vTuBTNWBfBjWsKZq633VtgeBMe0oagqk1OQ9E"/>
+<p class="font-headline text-xl italic leading-tight">"A simplicidade é o último grau de sofisticação."</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB -->
+<button class="fixed right-8 bottom-24 w-14 h-14 bg-primary text-on-primary flex items-center justify-center rounded-none shadow-[0_10px_30px_rgba(26,28,27,0.15)] active:scale-90 duration-300 ease-out z-50 group hover:opacity-90">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center pb-8 pt-2 px-4 bg-[#f9f9f7]/80 dark:bg-stone-900/80 backdrop-blur-md z-50 shadow-[0_-10px_30px_rgba(26,28,27,0.04)]">
+<a class="flex flex-col items-center justify-center text-black dark:text-white border-t-2 border-black dark:border-white pt-2 hover:text-black dark:hover:text-white transition-colors active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-600 pt-2 hover:text-black dark:hover:text-white transition-colors active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-600 pt-2 hover:text-black dark:hover:text-white transition-colors active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-600 pt-2 hover:text-black dark:hover:text-white transition-colors active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400;1,700&amp;family=Work+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#e2e3e1",
+              "on-surface-variant": "#474747",
+              "on-secondary-fixed-variant": "#3b3b3b",
+              "on-primary": "#e5e2e1",
+              "surface-container": "#eeeeec",
+              "secondary-container": "#d6d4d3",
+              "outline": "#777777",
+              "inverse-primary": "#c8c6c5",
+              "tertiary-fixed": "#5e5e5e",
+              "surface-bright": "#f9f9f7",
+              "primary-fixed": "#5f5e5e",
+              "inverse-on-surface": "#f1f1ef",
+              "on-primary-fixed-variant": "#e5e2e1",
+              "tertiary-fixed-dim": "#474747",
+              "inverse-surface": "#2f3130",
+              "surface-dim": "#dadad8",
+              "surface-container-high": "#e8e8e6",
+              "primary-container": "#3c3b3b",
+              "on-error": "#ffffff",
+              "surface-variant": "#e2e3e1",
+              "primary-fixed-dim": "#474746",
+              "error": "#ba1a1a",
+              "on-tertiary": "#e2e2e2",
+              "on-tertiary-fixed-variant": "#e2e2e2",
+              "secondary-fixed-dim": "#acabab",
+              "surface-container-lowest": "#ffffff",
+              "primary": "#000000",
+              "on-secondary-container": "#1b1c1c",
+              "surface-tint": "#5f5e5e",
+              "surface-container-low": "#f4f4f2",
+              "tertiary": "#3b3b3b",
+              "on-background": "#1a1c1b",
+              "error-container": "#ffdad6",
+              "outline-variant": "#c6c6c6",
+              "tertiary-container": "#747474",
+              "background": "#f9f9f7",
+              "on-primary-container": "#ffffff",
+              "on-secondary-fixed": "#1b1c1c",
+              "on-tertiary-container": "#ffffff",
+              "on-primary-fixed": "#ffffff",
+              "secondary-fixed": "#c8c6c6",
+              "on-tertiary-fixed": "#ffffff",
+              "on-error-container": "#410002",
+              "on-surface": "#1a1c1b",
+              "on-secondary": "#ffffff",
+              "surface": "#f9f9f7",
+              "secondary": "#5f5e5e"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Work Sans", "sans-serif"],
+              "label": ["Work Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f9f9f7;
+            background-image: radial-gradient(#c6c6c6 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            background-attachment: fixed;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body text-on-surface selection:bg-secondary-container">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-40 bg-[#f9f9f7] dark:bg-stone-900 flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-black dark:text-stone-100 hover:opacity-70 transition-opacity cursor-pointer active:scale-95 duration-200">menu</span>
+<h1 class="font-serif text-3xl italic tracking-tight text-black dark:text-stone-100">12 de Outubro</h1>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-black dark:text-stone-100 hover:opacity-70 transition-opacity cursor-pointer active:scale-95 duration-200">search</span>
+<span class="material-symbols-outlined text-black dark:text-stone-100 hover:opacity-70 transition-opacity cursor-pointer active:scale-95 duration-200">settings</span>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-6 pt-12 pb-32">
+<!-- Hero Section / Editorial Title -->
+<section class="mb-16">
+<p class="font-label text-[0.75rem] uppercase tracking-[0.2em] text-outline mb-4">Biblioteca</p>
+<h2 class="font-headline text-6xl md:text-7xl italic text-primary leading-tight">Minhas Coleções</h2>
+</section>
+<!-- Minimalist Search Bar -->
+<section class="mb-16">
+<div class="relative group">
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant/30 focus:border-primary focus:ring-0 px-0 py-4 font-body text-xl placeholder:text-outline-variant/60 transition-colors" placeholder="Buscar arquivos..." type="text"/>
+<div class="absolute right-0 top-1/2 -translate-y-1/2">
+<span class="material-symbols-outlined text-outline-variant">filter_list</span>
+</div>
+</div>
+</section>
+<!-- Collections Bento/List Hybrid -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<!-- Featured Collection Card -->
+<div class="md:col-span-8 group cursor-pointer">
+<div class="aspect-[16/9] mb-6 overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover grayscale opacity-90 group-hover:scale-105 transition-transform duration-700" data-alt="close-up of a high-quality leather bound notebook on a minimal wooden desk with soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIoganEDFES6JCefgs0zORYUMlO12eQoOUqUN885TWvQkM46CJ2aG1Ej1zyFo2UqSZu-qZzWgECGJcNJ3DewSf4YsVG1hKq7RNIfPq8CWu0GxnJYggHSikjEuaJb14isU4HXmjRBekDL07lNsHM8as9yntsiVjYIp1-O5BFOGnmwDePyfH1_wU7vfSaILppMGADBXFA5qlpfXJKahIQgkKc9C7f1eDKaNSMa51bsPw-SJ8cZKwvaUw8X6Zkb0kAhY2uoAnTrqadQo"/>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<span class="material-symbols-outlined text-primary mb-2">auto_stories</span>
+<h3 class="font-headline text-3xl italic">Livros para Ler</h3>
+<p class="font-body text-on-surface-variant text-sm mt-1">42 entradas • Atualizado ontem</p>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">arrow_outward</span>
+</div>
+</div>
+<!-- Side Collections Column -->
+<div class="md:col-span-4 flex flex-col gap-12">
+<!-- Collection Item -->
+<div class="group cursor-pointer">
+<div class="h-[1px] w-full bg-outline-variant/20 mb-6"></div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-on-surface-variant mt-1">lightbulb</span>
+<div>
+<h4 class="font-headline text-2xl italic">Ideias de Projetos</h4>
+<p class="font-body text-xs uppercase tracking-widest text-outline mt-2">12 esboços</p>
+</div>
+</div>
+</div>
+<!-- Collection Item -->
+<div class="group cursor-pointer">
+<div class="h-[1px] w-full bg-outline-variant/20 mb-6"></div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-on-surface-variant mt-1">favorite</span>
+<div>
+<h4 class="font-headline text-2xl italic">Gratidão</h4>
+<p class="font-body text-xs uppercase tracking-widest text-outline mt-2">Ritual diário • 156 dias</p>
+</div>
+</div>
+</div>
+<!-- Collection Item -->
+<div class="group cursor-pointer">
+<div class="h-[1px] w-full bg-outline-variant/20 mb-6"></div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-on-surface-variant mt-1">travel_explore</span>
+<div>
+<h4 class="font-headline text-2xl italic">Registros de Viagem</h4>
+<p class="font-body text-xs uppercase tracking-widest text-outline mt-2">3 jornadas</p>
+</div>
+</div>
+</div>
+<!-- Add New CTA -->
+<div class="mt-4">
+<button class="flex items-center gap-2 font-label text-[0.7rem] uppercase tracking-widest text-primary border-b border-primary pb-1 hover:opacity-60 transition-opacity"><span class="material-symbols-outlined text-sm">add</span> Novo Arquivo</button>
+</div>
+</div>
+</section>
+<!-- Bottom Spacing for Settings Peek -->
+<section class="mt-32 pt-16 border-t border-outline-variant/10">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="max-w-xs">
+<h5 class="font-headline text-3xl italic mb-4">Espaço e Armazenamento</h5>
+<p class="font-body text-on-surface-variant text-sm leading-relaxed">Seu santuário digital está 12% cheio. A sincronização na nuvem está ativa e protegida com criptografia de ponta a ponta.</p>
+</div>
+<div class="grid grid-cols-2 gap-8 w-full md:w-auto">
+<div>
+<p class="font-label text-[0.6rem] uppercase tracking-[0.2em] text-outline mb-3">Tipografia</p>
+<p class="font-headline text-xl italic">Newsreader</p>
+</div>
+<div>
+<p class="font-label text-[0.6rem] uppercase tracking-[0.2em] text-outline mb-3">Tema</p>
+<p class="font-headline text-xl italic">Papel Branco</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center pb-8 pt-2 px-4 bg-[#f9f9f7]/80 dark:bg-stone-900/80 backdrop-blur-md z-50 shadow-[0_-10px_30px_rgba(26,28,27,0.04)]">
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-600 pt-2 hover:text-black dark:hover:text-white transition-colors active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="font-sans text-[10px] uppercase tracking-widest mt-1">Escrever</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-600 pt-2 hover:text-black dark:hover:text-white transition-colors active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-sans text-[10px] uppercase tracking-widest mt-1">Plano</span>
+</a>
+<a class="flex flex-col items-center justify-center text-stone-400 dark:text-stone-600 pt-2 hover:text-black dark:hover:text-white transition-colors active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-sans text-[10px] uppercase tracking-widest mt-1">Registros</span>
+</a>
+<a class="flex flex-col items-center justify-center text-black dark:text-white border-t-2 border-black dark:border-white pt-2 hover:text-black dark:hover:text-white transition-colors active:scale-90 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">folder_open</span>
+<span class="font-sans text-[10px] uppercase tracking-widest mt-1">Biblioteca</span>
+</a>
+</nav>
+<!-- Visual Texture Overlay -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] z-[100]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCviViKpcBedZM-ANSYScpbt3Ztsco4PFo4KXq0_rkh0aLta712TWCD0_WImHZWjh6WvYcUMQL_Zw2KfTvUGLwDbgbQzfQyKrkplLjNa5ChhRuhjbWZtof9fFKf25rI7kpH9vv-f5lIg8RcmeTpoA6TL9fktaAgrBapSw49-SHuZIcEaNuV2dCR7w2EnHJBMeKSo7SehEzLC7_fIplKuNXx5cCjPlfNTn-1WwVq9NinAEpqTLU5NLNqKJPm_01isF8u7UAxLrV2rCo');"></div>
+</body></html>

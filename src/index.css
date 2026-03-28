@@ -1,0 +1,21 @@
+/* Tailwind is injected via CDN in index.html to match templates exactly */
+
+/* Custom global styles from the templates */
+.dot-grid {
+    background-image: radial-gradient(circle, #c6c6c6 1px, transparent 1px);
+    background-size: 24px 24px;
+    background-attachment: local;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+body {
+    min-height: max(884px, 100dvh);
+}
+
+/* Base custom scrollbar (optional but keeps it neat) */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c6c6c6; border-radius: 99px; }

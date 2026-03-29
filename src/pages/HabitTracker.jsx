@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { db } from '../firebase';
-import { collection, query, getDocs, addDoc, updateDoc, doc, arrayUnion, arrayRemove, orderBy } from 'firebase/firestore';
+import { collection, query, getDocs, addDoc, updateDoc, deleteDoc, doc, arrayUnion, arrayRemove, orderBy } from 'firebase/firestore';
 
 export default function HabitTracker() {
   const { currentUser, logout } = useAuth();
@@ -82,6 +82,16 @@ export default function HabitTracker() {
     }
   }
 
+  async function deleteHabit(habitId, habitName) {
+    if (!window.confirm(`Deseja realmente excluir o hábito "${habitName}"?\nTodo o progresso registrado será perdido.`)) return;
+    try {
+      await deleteDoc(doc(db, `users/${currentUser.uid}/habits`, habitId));
+      setHabits(prev => prev.filter(h => h.id !== habitId));
+    } catch (err) {
+      console.error('Erro ao excluir hábito:', err);
+    }
+  }
+
   // Calculate consistency
   const totalPossible = habits.length * today.getDate(); // Up to today
   const totalCompleted = habits.reduce((acc, obj) => acc + obj.logs.filter(d => d.startsWith(`${year}-${String(month + 1).padStart(2, '0')}`)).length, 0);
@@ -150,8 +160,15 @@ export default function HabitTracker() {
             <div className="space-y-6">
               {habits.map((habit, index) => (
                 <div key={habit.id} className="grid grid-cols-[160px_repeat(31,_minmax(28px,_1fr))] items-center group">
-                  <div className="font-body text-sm font-medium tracking-tight group-hover:pl-2 transition-all duration-300 pr-4 truncate" title={habit.name}>
-                    {habit.name}
+                  <div className="flex items-center gap-1 pr-2 group-hover:pl-2 transition-all duration-300">
+                    <span className="font-body text-sm font-medium tracking-tight truncate flex-1" title={habit.name}>{habit.name}</span>
+                    <button
+                      onClick={() => deleteHabit(habit.id, habit.name)}
+                      title="Excluir hábito"
+                      className="opacity-0 group-hover:opacity-100 transition-opacity p-0.5 hover:text-red-500 text-outline flex-shrink-0"
+                    >
+                      <span className="material-symbols-outlined text-[16px]">delete</span>
+                    </button>
                   </div>
                   <div className="contents">
                     {daysArray.map(day => {

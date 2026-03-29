@@ -238,7 +238,7 @@ export default function Monthly() {
             <span className="material-symbols-outlined text-black dark:text-stone-100" title="Direções">menu</span>
           </NavLink>
         </div>
-        <h1 className="font-serif text-2xl italic tracking-tight text-black dark:text-stone-100 capitalize">{dateString}</h1>
+        <h1 className="font-serif text-xl italic tracking-tight text-black dark:text-stone-100 capitalize">{dateString}</h1>
         <div className="flex items-center gap-6">
             <button className="active:scale-95 duration-200 hover:opacity-70 transition-opacity flex items-center">
               <span className="material-symbols-outlined text-black dark:text-stone-100">search</span>

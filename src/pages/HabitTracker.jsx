@@ -90,13 +90,15 @@ export default function HabitTracker() {
   return (
     <div className="font-body text-on-surface min-h-screen pb-32">
       {/* TopAppBar */}
-      <header className="w-full top-0 sticky z-40 bg-[#f9f9f7] dark:bg-[#1a1c1b] transition-all">
-        <div className="flex justify-between items-center px-6 py-4 w-full">
-          <div className="flex items-center gap-4">
+      <header className="fixed top-0 w-full z-50 bg-[#f9f9f7] dark:bg-[#1a1c1b] transition-all">
+        <div className="relative flex items-center justify-center w-full px-6 py-4">
+          <div className="absolute left-6 flex items-center gap-4">
             <span className="material-symbols-outlined text-black dark:text-white cursor-pointer hover:opacity-70 transition-opacity">menu</span>
-            <h1 className="font-['Newsreader'] italic text-2xl tracking-tight text-black dark:text-white">Hábitos</h1>
           </div>
-          <div className="flex items-center gap-4">
+
+          <h1 className="font-headline text-xl italic tracking-tight text-primary dark:text-white capitalize">Hábitos</h1>
+
+          <div className="absolute right-6 flex items-center gap-4 md:gap-6">
             <button onClick={logout} className="active:scale-95 duration-200 hover:opacity-70 transition-opacity flex items-center group relative">
               <span className="material-symbols-outlined text-black dark:text-stone-100">logout</span>
               <span className="absolute -bottom-6 right-0 text-[8px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Sair</span>
@@ -106,13 +108,14 @@ export default function HabitTracker() {
         <div className="bg-[#f4f4f2] dark:bg-[#2a2c2b] h-[1px] w-full"></div>
       </header>
       
-      <main className="max-w-[1400px] mx-auto px-6 pt-12">
+      <main className="max-w-[1400px] mx-auto px-6 pt-16 dot-grid min-h-screen">
         {/* Editorial Header */}
         <section className="mb-16">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="max-w-2xl">
               <span className="font-label text-xs uppercase tracking-[0.2em] text-outline mb-4 block capitalize">{monthName}</span>
-              <h2 className="font-headline text-6xl md:text-8xl text-primary leading-none -ml-1">Rastreador de Hábitos</h2>
+              <h2 className="font-headline italic font-semibold text-4xl md:text-5xl text-primary leading-tight">Hábitos</h2>
+              <div className="w-12 h-[2px] bg-[#2a9d8f] mt-1"></div>
             </div>
             <div className="flex flex-col items-start md:items-end">
               <p className="font-headline italic text-xl text-secondary max-w-[280px] md:text-right">

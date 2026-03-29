@@ -82,15 +82,17 @@ export default function Future() {
   return (
     <div className="font-body selection:bg-primary selection:text-on-primary min-h-screen">
       {/* TopAppBar */}
-      <header className="w-full top-0 sticky z-40 bg-[#f9f9f7] dark:bg-[#1a1c1b]">
-        <div className="flex justify-between items-center px-6 py-4 w-full">
-          <div className="flex items-center gap-4">
+      <header className="fixed top-0 w-full z-50 bg-[#f9f9f7] dark:bg-[#1a1c1b]">
+        <div className="relative flex items-center justify-center w-full px-6 py-4">
+          <div className="absolute left-6 flex items-center gap-4">
             <NavLink to="/direcoes" className="hover:opacity-70 transition-opacity active:scale-95 duration-200">
               <span className="material-symbols-outlined text-black dark:text-stone-100" title="Direções">menu</span>
             </NavLink>
-            <h1 className="font-['Newsreader'] italic text-2xl tracking-tight text-black dark:text-white">Diário</h1>
           </div>
-          <div className="flex items-center gap-4">
+
+          <h1 className="font-headline text-xl italic tracking-tight text-primary dark:text-white capitalize">Futuro</h1>
+
+          <div className="absolute right-6 flex items-center gap-4 md:gap-6">
             <button onClick={logout} className="hover:opacity-70 transition-opacity active:transition-transform duration-200 active:scale-95 group relative">
               <span className="material-symbols-outlined text-black dark:text-white">logout</span>
               <span className="absolute -bottom-6 right-0 text-[8px] uppercase tracking-widest text-black dark:text-stone-100 opacity-0 group-hover:opacity-100 transition-opacity">Sair</span>
@@ -100,14 +102,13 @@ export default function Future() {
         <div className="bg-[#f4f4f2] dark:bg-[#2a2c2b] h-[1px] w-full"></div>
       </header>
       
-      <main className="relative pb-32">
-        {/* Background Dot Grid */}
-        <div className="absolute inset-0 dot-grid pointer-events-none opacity-15"></div>
-        <section className="max-w-6xl mx-auto px-6 pt-12 relative z-10">
+      <main className="relative pb-32 dot-grid min-h-screen">
+        <section className="max-w-6xl mx-auto px-6 pt-16 relative z-10">
           {/* Header Section */}
           <div className="mb-10">
             <p className="font-label text-[10px] uppercase tracking-[0.2em] text-secondary mb-2">Planejamento Semestral</p>
-            <h2 className="font-headline text-5xl md:text-7xl text-primary leading-none tracking-tighter">Future Logs</h2>
+            <h2 className="font-headline italic font-semibold text-4xl md:text-5xl text-primary leading-tight">Future Logs</h2>
+            <div className="w-12 h-[2px] bg-[#6366f1] mt-1"></div>
             <div className="mt-6 flex items-center justify-between border-b border-outline-variant/30 pb-4">
               <div className="flex gap-8 overflow-x-auto no-scrollbar">
                 <button 

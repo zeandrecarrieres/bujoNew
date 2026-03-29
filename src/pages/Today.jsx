@@ -103,6 +103,12 @@ export default function Today() {
   }
 
   async function migrateLog(log, targetTime) {
+      const destinations = {
+        'tomorrow': 'Amanhã',
+        'week': 'Próxima Semana',
+        'month': 'Lista de Tarefas do Mês'
+      };
+      if (!window.confirm(`Deseja migrar este item para ${destinations[targetTime]}?`)) return;
       if (log.migratedTo || log.completed) return;
       
       let newDateId = tomorrowId;
@@ -137,33 +143,35 @@ export default function Today() {
   const moods = logs.filter(log => log.type === 'mood');
 
   const ActionMenu = ({ log }) => (
-      <div className={`flex items-center gap-1.5 bg-surface z-10 w-max md:w-auto transition-opacity md:absolute md:-left-20 md:top-1/2 md:-translate-y-1/2 md:pr-2 
+      <div className={`flex items-center gap-4 bg-surface z-20 w-max md:w-auto transition-opacity md:absolute md:-left-28 md:top-1/2 md:-translate-y-1/2 md:pr-2 
           ${activeMenuId === log.id ? 'opacity-100 flex fade-in animate-in' : 'hidden md:flex md:opacity-0 md:group-hover:opacity-100'}`}>
           {!log.completed && !log.migratedTo && (log.type === 'task' || log.type === 'event') && (
               <>
-                  <button onClick={(e) => { e.stopPropagation(); migrateLog(log, 'tomorrow'); setActiveMenuId(null); }} title="Migrar p/ Amanhã" className="text-secondary hover:text-primary material-symbols-outlined text-[18px] md:text-[16px] transition-colors md:p-0">east</button>
-                  <button onClick={(e) => { e.stopPropagation(); migrateLog(log, 'week'); setActiveMenuId(null); }} title="Migrar p/ Próx. Semana" className="text-secondary hover:text-primary material-symbols-outlined text-[18px] md:text-[16px] transition-colors md:p-0">keyboard_double_arrow_right</button>
-                  <button onClick={(e) => { e.stopPropagation(); migrateLog(log, 'month'); setActiveMenuId(null); }} title="Mover p/ Task List (Geral)" className="text-secondary hover:text-primary material-symbols-outlined text-[18px] md:text-[16px] transition-colors md:p-0">west</button>
+                  <button onClick={(e) => { e.stopPropagation(); migrateLog(log, 'tomorrow'); setActiveMenuId(null); }} title="Migrar p/ Amanhã" className="text-secondary hover:text-primary material-symbols-outlined text-[24px] md:text-[18px] p-1.5 transition-colors md:p-0">east</button>
+                  <button onClick={(e) => { e.stopPropagation(); migrateLog(log, 'week'); setActiveMenuId(null); }} title="Migrar p/ Próx. Semana" className="text-secondary hover:text-primary material-symbols-outlined text-[24px] md:text-[18px] p-1.5 transition-colors md:p-0">keyboard_double_arrow_right</button>
+                  <button onClick={(e) => { e.stopPropagation(); migrateLog(log, 'month'); setActiveMenuId(null); }} title="Mover p/ Task List (Geral)" className="text-secondary hover:text-primary material-symbols-outlined text-[24px] md:text-[18px] p-1.5 transition-colors md:p-0">west</button>
               </>
           )}
-          <button onClick={(e) => { e.stopPropagation(); deleteLog(log.id); setActiveMenuId(null); }} title="Excluir" className="text-red-500/50 hover:text-red-500 material-symbols-outlined text-[18px] md:text-[16px] transition-colors md:p-0">close</button>
+          <button onClick={(e) => { e.stopPropagation(); deleteLog(log.id); setActiveMenuId(null); }} title="Excluir" className="text-red-500/50 hover:text-red-500 material-symbols-outlined text-[24px] md:text-[18px] p-1.5 transition-colors md:p-0">close</button>
       </div>
   );
 
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-secondary-container" onClick={() => setActiveMenuId(null)}>
       {/* TopAppBar */}
-      <header className="w-full top-0 sticky z-40 bg-[#f9f9f7] dark:bg-stone-900 border-b border-outline-variant/10">
-        <div className="flex justify-between items-center w-full px-6 py-3 md:py-4">
-          <div className="flex items-center gap-4">
+      <header className="fixed top-0 w-full z-50 bg-[#f9f9f7] dark:bg-stone-900 border-b border-outline-variant/10">
+        <div className="relative flex items-center justify-center w-full px-6 py-3 md:py-4">
+          <div className="absolute left-6 flex items-center gap-4">
             <NavLink to="/direcoes" className="hover:opacity-70 transition-opacity active:scale-95 duration-200">
               <span className="material-symbols-outlined text-black dark:text-stone-100" title="Direções">menu</span>
             </NavLink>
           </div>
-          <h1 className="font-serif text-2xl md:text-3xl italic tracking-tight text-black dark:text-stone-100 capitalize">
-            {dateString}
+
+          <h1 className="font-headline text-xl italic tracking-tight text-primary dark:text-stone-100">
+            {dateString.charAt(0).toUpperCase() + dateString.slice(1)}
           </h1>
-          <div className="flex items-center gap-6">
+
+          <div className="absolute right-6 flex items-center gap-4 md:gap-6">
             <button className="active:scale-95 duration-200 hover:opacity-70 transition-opacity flex items-center">
               <span className="material-symbols-outlined text-black dark:text-stone-100">search</span>
             </button>
@@ -175,13 +183,16 @@ export default function Today() {
         </div>
       </header>
       
-      <main className="min-h-screen pb-32 dot-grid px-6 md:px-12 lg:px-24">
-        <div className="max-w-3xl mx-auto pt-6 pb-8">
+      <main className="min-h-screen pt-16 pb-32 dot-grid px-6 md:px-12 lg:px-24">
+        <div className="max-w-3xl mx-auto pb-8">
           {/* Hero Header / Page Intent */}
           <div className="mb-8 space-y-1">
             <span className="font-label text-[10px] uppercase tracking-[0.2em] text-outline">Diário</span>
-            <h2 className="font-headline text-5xl md:text-6xl font-light leading-tight italic capitalize">{dayOfWeek}.</h2>
-            <div className="w-12 h-[1px] bg-primary mt-4"></div>
+            <h2 className="font-headline text-4xl md:text-5xl font-semibold leading-tight italic text-primary flex items-baseline gap-2">
+              Hoje
+              <span className="text-2xl md:text-3xl font-light text-outline lowercase italic">({dayOfWeek})</span>
+            </h2>
+            <div className="w-12 h-[2px] bg-[#d4af37] mt-1"></div>
           </div>
 
           {/* New Entry Form */}

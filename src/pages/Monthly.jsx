@@ -35,7 +35,7 @@ export default function Monthly() {
   const year = today.getFullYear();
   const month = today.getMonth(); // 0-based
   const monthName = today.toLocaleDateString('pt-BR', { month: 'long' });
-  const dateString = today.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
+  const dateString = today.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const daysArray = Array.from({ length: daysInMonth }, (_, i) => i + 1);
   const prefix = `${year}-${String(month + 1).padStart(2, '0')}`;
@@ -232,14 +232,19 @@ export default function Monthly() {
   return (
     <div className="bg-surface text-on-surface font-body selection:bg-secondary-container" onClick={() => setActiveMenuId(null)}>
       {/* TopAppBar */}
-      <header className="w-full top-0 sticky z-50 bg-[#f9f9f7] dark:bg-stone-900 flex justify-between items-center px-6 py-3 border-b border-outline-variant/10">
-        <div className="flex items-center gap-4">
-          <NavLink to="/direcoes" className="hover:opacity-70 transition-opacity active:scale-95 duration-200">
-            <span className="material-symbols-outlined text-black dark:text-stone-100" title="Direções">menu</span>
-          </NavLink>
-        </div>
-        <h1 className="font-serif text-xl italic tracking-tight text-black dark:text-stone-100 capitalize">{dateString}</h1>
-        <div className="flex items-center gap-6">
+      <header className="fixed w-full top-0 z-50 bg-[#f9f9f7] dark:bg-stone-900 border-b border-outline-variant/10">
+        <div className="relative flex items-center justify-center w-full px-6 py-3">
+          <div className="absolute left-6 flex items-center gap-4">
+            <NavLink to="/direcoes" className="hover:opacity-70 transition-opacity active:scale-95 duration-200">
+              <span className="material-symbols-outlined text-black dark:text-stone-100" title="Direções">menu</span>
+            </NavLink>
+          </div>
+          
+          <h1 className="font-headline text-xl italic tracking-tight text-primary dark:text-stone-100">
+            {dateString.charAt(0).toUpperCase() + dateString.slice(1)}
+          </h1>
+
+          <div className="absolute right-6 flex items-center gap-4 md:gap-6">
             <button className="active:scale-95 duration-200 hover:opacity-70 transition-opacity flex items-center">
               <span className="material-symbols-outlined text-black dark:text-stone-100">search</span>
             </button>
@@ -247,16 +252,21 @@ export default function Monthly() {
               <span className="material-symbols-outlined text-black dark:text-stone-100">logout</span>
               <span className="absolute -bottom-6 right-0 text-[8px] uppercase tracking-widest text-black dark:text-stone-100 opacity-0 group-hover:opacity-100 transition-opacity">Sair</span>
             </button>
+          </div>
         </div>
       </header>
       
-      <main className="max-w-5xl mx-auto px-6 pt-6 pb-32 min-h-screen dot-grid bg-opacity-10">
+      <main className="max-w-5xl mx-auto px-6 pt-16 pb-32 min-h-screen dot-grid">
         {/* Monthly Header Section */}
         <section className="mb-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="space-y-1">
               <p className="font-label text-[10px] uppercase tracking-[0.2em] text-outline">Visão Mensal</p>
-              <h2 className="font-headline text-5xl md:text-6xl italic text-primary capitalize">{monthName}</h2>
+              <h2 className="font-headline italic font-semibold text-4xl md:text-5xl text-primary leading-tight capitalize flex items-baseline gap-2">
+                Mês
+                <span className="text-2xl md:text-3xl font-light text-outline lowercase italic">({monthName})</span>
+              </h2>
+              <div className="w-12 h-[2px] bg-[#c88d8d] mt-1"></div>
             </div>
             <div className="max-w-xs md:text-right">
               <p className="font-body text-sm leading-relaxed text-on-surface-variant italic">"A maneira de começar é parar de falar e começar a fazer."</p>

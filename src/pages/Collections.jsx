@@ -78,12 +78,15 @@ export default function Collections() {
   return (
     <div className="font-body text-on-surface selection:bg-secondary-container">
       {/* TopAppBar */}
-      <header className="w-full top-0 sticky z-40 bg-[#f9f9f7] dark:bg-stone-900 flex justify-between items-center px-6 py-4">
-        <div className="flex items-center gap-4">
-          <span className="material-symbols-outlined text-black dark:text-stone-100 hover:opacity-70 transition-opacity cursor-pointer active:scale-95 duration-200">menu</span>
-          <h1 className="font-serif text-3xl italic tracking-tight text-black dark:text-stone-100 capitalize">{dateString}</h1>
-        </div>
-        <div className="flex items-center gap-6">
+      <header className="fixed top-0 w-full z-50 bg-[#f9f9f7] dark:bg-stone-900 border-b border-outline-variant/10">
+        <div className="relative flex items-center justify-center w-full px-6 py-4">
+          <div className="absolute left-6 flex items-center gap-4">
+            <span className="material-symbols-outlined text-black dark:text-stone-100 hover:opacity-70 transition-opacity cursor-pointer active:scale-95 duration-200">menu</span>
+          </div>
+
+          <h1 className="font-headline text-xl italic tracking-tight text-primary dark:text-stone-100">{dateString.charAt(0).toUpperCase() + dateString.slice(1)}</h1>
+
+          <div className="absolute right-6 flex items-center gap-4 md:gap-6">
             <button className="active:scale-95 duration-200 hover:opacity-70 transition-opacity flex items-center group relative">
               <span className="material-symbols-outlined text-black dark:text-stone-100">search</span>
             </button>
@@ -91,14 +94,16 @@ export default function Collections() {
               <span className="material-symbols-outlined text-black dark:text-stone-100">logout</span>
               <span className="absolute -bottom-6 right-0 text-[8px] uppercase tracking-widest text-black dark:text-stone-100 opacity-0 group-hover:opacity-100 transition-opacity">Sair</span>
             </button>
+          </div>
         </div>
       </header>
       
-      <main className="max-w-4xl mx-auto px-6 pt-12 pb-32">
+      <main className="max-w-4xl mx-auto px-6 pt-16 pb-32 dot-grid min-h-screen">
         {/* Hero Section / Editorial Title */}
         <section className="mb-16">
           <p className="font-label text-[0.75rem] uppercase tracking-[0.2em] text-outline mb-4">Biblioteca</p>
-          <h2 className="font-headline text-6xl md:text-7xl italic text-primary leading-tight">Minhas Coleções</h2>
+          <h2 className="font-headline italic font-semibold text-4xl md:text-5xl text-primary leading-tight">Coleções</h2>
+          <div className="w-12 h-[2px] bg-[#a67c52] mt-1"></div>
         </section>
         
         {/* New Collection Form */}

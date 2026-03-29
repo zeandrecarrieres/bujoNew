@@ -122,7 +122,7 @@ export default function Directions() {
 
       {/* Main Content Canvas */}
       <main className="relative pt-24 px-6 md:px-12 max-w-3xl mx-auto">
-        <div className="fixed inset-0 dot-grid pointer-events-none z-0 opacity-40"></div>
+        <div className="fixed inset-0 dot-grid pointer-events-none z-0"></div>
 
         {/* Hero Editorial Section */}
         <section className="relative z-10 mb-12">

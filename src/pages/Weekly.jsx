@@ -111,6 +111,7 @@ export default function Weekly() {
   // Create a duplicate item strictly designated for Today.
   async function duplicateToToday(log) {
     if (log.dateId === todayId || log.completed) return;
+    if (!window.confirm("Deseja puxar este item para Hoje?")) return;
     try {
       const clonedLog = {
         text: log.text,
@@ -139,12 +140,12 @@ export default function Weekly() {
   const moods = weeklyLogs.filter(log => log.type === 'mood');
 
   const ActionMenu = ({ log }) => (
-      <div className={`flex items-center gap-1.5 bg-surface z-10 w-max md:w-auto transition-opacity md:absolute md:-left-16 md:top-1/2 md:-translate-y-1/2 md:pr-2 
+      <div className={`flex items-center gap-4 bg-surface z-20 w-max md:w-auto transition-opacity md:absolute md:-left-20 md:top-1/2 md:-translate-y-1/2 md:pr-2 
           ${activeMenuId === log.id ? 'opacity-100 inline-flex fade-in animate-in' : 'hidden md:flex md:opacity-0 md:group-hover:opacity-100'}`}>
           {log.dateId !== todayId && !log.completed && (
-              <button onClick={(e) => { e.stopPropagation(); duplicateToToday(log); setActiveMenuId(null); }} title="Puxar para Hoje" className="text-secondary hover:text-primary material-symbols-outlined text-[18px] md:text-[16px] transition-colors md:p-0">today</button>
+              <button onClick={(e) => { e.stopPropagation(); duplicateToToday(log); setActiveMenuId(null); }} title="Puxar para Hoje" className="text-secondary hover:text-primary material-symbols-outlined text-[24px] md:text-[18px] p-1.5 transition-colors md:p-0">today</button>
           )}
-          <button onClick={(e) => { e.stopPropagation(); deleteLog(log.id); setActiveMenuId(null); }} title="Excluir" className="text-red-500/50 hover:text-red-500 material-symbols-outlined text-[18px] md:text-[16px] transition-colors md:p-0">close</button>
+          <button onClick={(e) => { e.stopPropagation(); deleteLog(log.id); setActiveMenuId(null); }} title="Excluir" className="text-red-500/50 hover:text-red-500 material-symbols-outlined text-[24px] md:text-[18px] p-1.5 transition-colors md:p-0">close</button>
       </div>
   );
 
@@ -152,34 +153,37 @@ export default function Weekly() {
     <div className="bg-surface text-on-surface font-body selection:bg-secondary-container min-h-screen pb-24" onClick={() => setActiveMenuId(null)}>
       {/* TopAppBar */}
       <header className="fixed top-0 w-full z-50 bg-[#f9f9f7] dark:bg-stone-900 border-b border-outline-variant/10">
-        <div className="flex items-center justify-between px-6 py-3 w-full">
-          <NavLink to="/direcoes" className="hover:opacity-70 transition-opacity active:scale-95 duration-200">
-            <span className="material-symbols-outlined text-black dark:text-stone-100" title="Direções">menu</span>
-          </NavLink>
-          <h1 className="font-serif italic font-medium text-2xl tracking-tight text-black dark:text-stone-100 capitalize">{titleString}</h1>
-          <div className="flex items-center gap-4">
+        <div className="relative flex items-center justify-center w-full px-6 py-3">
+          <div className="absolute left-6 flex items-center gap-4">
+            <NavLink to="/direcoes" className="hover:opacity-70 transition-opacity active:scale-95 duration-200">
+              <span className="material-symbols-outlined text-black dark:text-stone-100" title="Direções">menu</span>
+            </NavLink>
+          </div>
+          
+          <h1 className="font-headline text-xl italic tracking-tight text-primary dark:text-stone-100">{titleString.charAt(0).toUpperCase() + titleString.slice(1)}</h1>
+          
+          <div className="absolute right-6 flex items-center gap-4 md:gap-6">
             <button className="active:scale-95 duration-200 hover:opacity-70 transition-opacity">
               <span className="material-symbols-outlined text-black dark:text-stone-100">search</span>
             </button>
-            <button onClick={logout} className="active:scale-95 duration-200 hover:opacity-70 transition-opacity flex items-center group relative">
+            <button onClick={logout} className="active:scale-95 duration-200 hover:opacity-70 transition-opacity">
               <span className="material-symbols-outlined text-black dark:text-stone-100">logout</span>
-              <span className="absolute -bottom-6 right-0 text-[8px] uppercase tracking-widest text-black dark:text-stone-100 opacity-0 group-hover:opacity-100 transition-opacity">Sair</span>
             </button>
           </div>
         </div>
       </header>
 
       {/* Main Content Canvas */}
-      <main className="relative pt-24 px-6 md:px-12 max-w-4xl mx-auto">
-        <div className="fixed inset-0 dot-grid pointer-events-none z-0 opacity-40"></div>
+      <main className="relative pt-16 px-6 md:px-12 max-w-4xl mx-auto">
+        <div className="fixed inset-0 dot-grid pointer-events-none z-0"></div>
 
         {/* Hero Editorial Section */}
         <section className="relative z-10 mb-8">
           <div className="flex flex-col md:flex-row justify-between items-baseline gap-4">
             <div className="max-w-xl">
-              <span className="font-label uppercase tracking-[0.2em] text-[10px] text-outline mb-1 block">Diário</span>
-              <h2 className="font-headline italic text-5xl md:text-6xl text-primary leading-tight">Visão Semanal</h2>
-              <div className="w-12 h-[1px] bg-primary mt-4"></div>
+              <span className="font-label uppercase tracking-[0.2em] text-[10px] text-outline mb-1 block">Visão Semanal</span>
+              <h2 className="font-headline italic font-semibold text-4xl md:text-5xl text-primary leading-tight">Semana</h2>
+              <div className="w-12 h-[2px] bg-[#9b2226] mt-1"></div>
             </div>
             <div className="hidden md:block text-right">
               <p className="font-label text-xs uppercase tracking-widest text-outline">Semana atual</p>

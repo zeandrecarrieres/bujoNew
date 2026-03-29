@@ -40,7 +40,7 @@ export default function Login() {
   return (
     <div className="font-body text-on-surface bg-[#f9f9f7] min-h-screen flex items-center justify-center selection:bg-secondary-container p-6 relative">
       {/* Background Dot Grid */}
-      <div className="absolute inset-0 dot-grid pointer-events-none opacity-20 z-0"></div>
+      <div className="absolute inset-0 dot-grid pointer-events-none z-0"></div>
 
       <div className="w-full max-w-md bg-surface-container-lowest p-12 shadow-[0_20px_40px_rgba(0,0,0,0.04)] relative z-10 border-t-4 border-primary">
         <div className="mb-10 text-center">

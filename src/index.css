@@ -2,7 +2,7 @@
 
 /* Custom global styles from the templates */
 .dot-grid {
-    background-image: radial-gradient(circle, #c6c6c6 1px, transparent 1px);
+    background-image: radial-gradient(circle, #e2e3e1 1px, transparent 1px);
     background-size: 24px 24px;
     background-attachment: local;
 }
